@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+        div.block {
+            display: flex;
+            flex-direction: column;
+
+            div.input {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                h4 {
+                    margin: 0;
+                    width: 120px;
+                }
+            }
+        }
+        section{
+            nav{
+                
+                width: fit-content;
+                margin: 10px auto;
+                a:is(:link, :visited){
+                    background-color: #0004;
+                    color: #ffffff;
+                    padding: 8px;
+                    text-decoration: none;
+                }
+                a:is(:hover, :active){
+                    background-color: black;
+                }
+                a:first-child{
+                    border-radius: 20px 0 0 20px;
+
+                }
+                a:last-child{
+                    border-radius: 0 20px 20px 0;
+                }
+            }
+            div#elements,
+            div#example{
+                display: none;
+
+            }
+            #elements:target,
+            #example:target{
+                display: block;
+            }
+            
+
+        }
+        form{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                label{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+    </style>
+</head>
+<body>
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    
+
+        <main>
+            <header>
+                <h1>Forms</h1>
+                <h2>
+                    These tags allows you to create forms
+                </h2>
+        </header>
+        <section>
+            <nav>
+                <a href="#elements">elements</a>
+                <a href="#example">example</a>
+            </nav>
+    <div id="elements">
+            <h3>Inputs</h3>
+            <div class="block">
+            <div class="input">
+                    <h4>Text:</h4>
+                    <input type="text">
+                </div>
+                <div class="input">
+                    <h4>Password:</h4>
+                    
+                    <input id="passw" type="password">
+                    <button id="toggleopt">👀</button>
+                </div>
+                <div class="input">
+                    <h4>Number:</h4>
+                    <input type="number">
+                </div>
+                <div class="input">
+                    <h4>range:<</h4>
+                    <input type="range" value="0" min="0" max="100" step="25" oninput="per.value=this.value+'%'">
+                    <output id="per">0%</output>
+                </div>
+                <div class="input">
+                    <h4>Color:</h4>
+                    <input type="color" oninput="color.value=this.value">
+                    <output id="color"></output>
+                </div>
+                <div class="input">
+                    <h4>fecha:</h4>
+                    <input type="date">
+                </div>
+                <div class="input">
+                    <h4>hora:</h4>
+                    <input type="time">
+                </div>
+                <div class="input">
+                    <h4>week:</h4>
+                    <input type="week">
+                </div>
+                <div class="input">
+                    <h4>month:</h4>
+                    <input type="month">
+                </div>
+                <div class="input">
+                    <h4>search:</h4>
+                    <input type="search">
+                </div>
+                <div class="input">
+                    <h4>file:</h4>
+                    <input type="file">
+                </div>
+                <div class="input">
+                    <h4>button:</h4>
+                    <input type="button" value="button">
+                    
+                </div>
+                <div class="input">
+                    <h4>reset:</h4>
+                    <input type="reset">
+                </div>
+                <div class="input">
+                    <h4>enviar:</h4>
+                    <input type="submit">
+                </div>
+                <div class="input">
+                    <h4>radio:</h4>
+                    <input type="radio" name="option" checked>
+                    <input type="radio" name="option" >
+                </div>
+                <div class="input">
+                    <h4>checkbox:</h4>
+                    <input type="checkbox" name="option" checked>
+                    <input type="checkbox" name="option" >
+                </div>
+                <h3>Otos elementos</h3>
+                <div class="input">
+                    <h4>progress:</h4>
+                    <progress value="0.5"></progress>
+                </div>
+                <div class="input">
+                    <h4>select:<</h4>
+                    <select name="genero">
+                        <option value="">select gender.....</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="femenino">femenino</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <h4>text area </h4>
+                    <textarea  cols="20" rows="4"></textarea>
+            </div>
+        </div>
+    </div> 
+    <div id="example">
+        <h3>example from</h3>
+        <fieldset>
+            <legend>
+                <h4>personal</h4>
+            </legend>
+            <form action="" method="">
+                <label for="">
+                    nombre completo:
+                    <input type="text" name="nombrecompleto" required>
+                </label>
+                <label for="">
+                    email:
+                    <input type="email" name="email" required>
+                </label>
+                
+                    <label for="">
+                        fevha de nacimiento:
+                        <input type="date" name="fechanacimiento" required>
+                    </label>
+                    <label for="">
+                        genero:
+                        <select name="genero" required>
+                            <option value="masculino">masculino</option>
+                            <option value="femenino">femenino</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input type="submit" value="enviar">
+                        <input type="reset" value="limpiar">
+                    </label>
+
+                </label>
+            </form>
+            
+            </fieldset>
+        
+      
+    </div>
+                
+   
+    </section>
+</main>
+<script>
+    const passw = document.getElementById('passw')
+    const toggleopt = document.getElementById('toggleopt') 
+    
+        toggleopt.addEventListener('click', () => {
+            if (toggleopt.textContent == '👀'){
+                toggleopt.textContent = '❌'
+                    passw.setAttribute('type', 'text')
+
+            }else {
+                toggleopt.textContent = '👀'
+                passw.setAttribute('type', 'password') 
+            }
+        })
+        
+
+    </script>
+</body>
+</html>
