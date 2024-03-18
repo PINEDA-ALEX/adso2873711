@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Script (JS)</title>
+    <title>specifity</title>
     <link rel="stylesheet" href="css/master.css">
+    <style>
+        button.bg-blue {
+            background: royalblue;
+            border-radius: 10px;
+            border: 2px solid #fff9;
+            color: #fff9;
+            font-size: 1.6rem;
+            padding: 10px;
+            display: block;
+            margin: 20px auto;
+        }
+        button{
+            background-color: brown;
+        }
+    </style>
+
 </head>
 <body>
     <nav class="controls">
@@ -14,18 +30,14 @@
     </nav>
     <main>
         <header>
-            <h1>Script (JS)</h1>
-            <h2>
-                This tag allows you to insert code in javascript
-            </h2>
+            <h1>specifity</h1>
+
+               <h2>la especificidad es un puntaje que determina caul estilo es aplicado un elemento</h2>
+
         </header>
         <section>
-            <h2>Welcome: <mark id="guest">Guest</mark></h2>
+            <button class="bg-blue">Click Me</button>
         </section>
     </main>
-    <script>
-        let user = prompt("What's your Name ?")
-        user?guest.innerText = user:null
-    </script>
 </body>
 </html>

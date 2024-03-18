@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Script (JS)</title>
+    <title>Basic selector</title>
     <link rel="stylesheet" href="css/master.css">
+    <style>
+        section#section01 p.rotate {
+            color: rgb(0, 247, 255);
+            font-size: 4rem;
+            text-align: center;
+            transform: rotate(-45deg);
+            padding: 1rem;
+        }
+    </style>
+
 </head>
 <body>
     <nav class="controls">
@@ -14,18 +24,23 @@
     </nav>
     <main>
         <header>
-            <h1>Script (JS)</h1>
-            <h2>
-                This tag allows you to insert code in javascript
-            </h2>
+            <h1>Basic selector</h1>
+
+                <ul>
+                    <li>universa(*)</li>
+                    <li>type / tag(p)</li>
+                    <li>descendente(div p)</li>
+                    <li>class(.important)</li>
+                    <li>id(#cod398)</li>
+                    <li>combinar (div#user3p.title)</li>
+                </ul>
+
         </header>
-        <section>
-            <h2>Welcome: <mark id="guest">Guest</mark></h2>
+        <section id="section01">
+            <p class="rotate">
+                SENA
+            </p>
         </section>
     </main>
-    <script>
-        let user = prompt("What's your Name ?")
-        user?guest.innerText = user:null
-    </script>
 </body>
 </html>

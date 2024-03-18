@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Script (JS)</title>
+    <title>adsolute</title>
     <link rel="stylesheet" href="css/master.css">
+    <style>
+        li.abs1 { font-size: 0.5in;}
+        li.abs2 { font-size: 1cm;}
+        li.abs3 { font-size: 10mm;}
+        li.abs4 { font-size: 10pt;}
+        li.abs5 { font-size: 2pc;}
+
+
+    </style>
+
 </head>
 <body>
     <nav class="controls">
@@ -14,18 +24,20 @@
     </nav>
     <main>
         <header>
-            <h1>Script (JS)</h1>
-            <h2>
-                This tag allows you to insert code in javascript
-            </h2>
+            <h1>adsolute</h1>
+
+               <h2>especifica un valor fijo</h2>
+
         </header>
         <section>
-            <h2>Welcome: <mark id="guest">Guest</mark></h2>
+       <ul>
+        <li class="abs1">Inch: 0.5in</li>
+        <li class="abs2">Cm: 1cm</li>
+        <li class="abs3">Mm: 10mm</li>
+        <li class="abs4">Pt: 10pt</li>
+        <li class="abs5">Pc: 10pc</li>
+       </ul>
         </section>
     </main>
-    <script>
-        let user = prompt("What's your Name ?")
-        user?guest.innerText = user:null
-    </script>
 </body>
 </html>

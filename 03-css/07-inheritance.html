@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Script (JS)</title>
+    <title>Herencia</title>
     <link rel="stylesheet" href="css/master.css">
+    <style>
+      ul{
+        color: brown;
+      }
+      ul li ol li:last-child{
+        color: rgb(0, 0, 0);
+
+      }
+    </style>
+
 </head>
 <body>
     <nav class="controls">
@@ -14,18 +24,29 @@
     </nav>
     <main>
         <header>
-            <h1>Script (JS)</h1>
-            <h2>
-                This tag allows you to insert code in javascript
-            </h2>
+            <h1>Herencia</h1>
+
+               <h2>las propieades son heredas del padra a todos sus decendientes </h2>
+
         </header>
         <section>
-            <h2>Welcome: <mark id="guest">Guest</mark></h2>
+           <ul>
+            <li>Metroid dread</li>
+            <li>Ori and the blind forest</li>
+            <li>Hollow Knight</li>
+            <li>prince of persia the lost crown</li>
+            <li>Zal tear of the Kingdom</li>
+            Zelda tears of the Kingdom
+            <ol>
+                <li>Zelda</li>
+                <li>Link</li>
+                <li>Ganondorf</li>
+                <li>Riju</li>
+                <li>Sido</li>
+                <li>Yunodo</li>
+            </ol>
+           </ul>
         </section>
     </main>
-    <script>
-        let user = prompt("What's your Name ?")
-        user?guest.innerText = user:null
-    </script>
 </body>
 </html>
