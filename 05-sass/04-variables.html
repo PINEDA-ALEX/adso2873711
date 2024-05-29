@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conditional (SCSS)</title>
+    <title>Variables (SASS)</title>
     <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/07-conditionals.css">
+    <link rel="stylesheet" href="css/04-variables.css">
 </head>
 <body>
     <nav class="boton">
@@ -15,20 +15,31 @@
     </nav>
     <main>
         <header>
-            <h1>Conditional (SCSS)</h1>
+            <h1>Variables (SASS)</h1>
             <h2>Lorem ipsum dolor sit amet</h2>
         </header>
         <section class="content">
-            <a href="#showModal" class="btn">Calculate</a>
-            <div id="showModal" class="modal">
-                <div>
-                    <a href="#hideModal" class="close"> &times; </a>
-                    <h2 class="message"></h2>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero laborum mollitia cum minima, doloremque, animi omnis esse fuga consequatur dolores, ipsum aut? Soluta, perspiciatis vel?
-                    </p>
-                </div>
-            </div>
+            <nav class="menu">
+                <ul>
+                    <li>Home</li>
+                    <li>
+                        About
+                        <ul class="submenu">
+                            <li>History</li>
+                            <li>Mision</li>
+                            <li>Vision</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Services
+                        <ul class="submenu">
+                            <li>Web Apps</li>
+                            <li>Mobile Apps</li>
+                        </ul>
+                    </li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
         </section>
     </main>
 </body>
