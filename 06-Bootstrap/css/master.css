@@ -1,17 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap') ;
 
 body {
-    background-color: #330055;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg fill-opacity='0.27'%3E%3Ccircle fill='%23330055' cx='50' cy='0' r='50'/%3E%3Cg fill='%233a015d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23410165' cx='50' cy='100' r='50'/%3E%3Cg fill='%2348026e' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23500376' cx='50' cy='200' r='50'/%3E%3Cg fill='%2357047e' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%235f0587' cx='50' cy='300' r='50'/%3E%3Cg fill='%2367068f' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%236f0798' cx='50' cy='400' r='50'/%3E%3Cg fill='%237707a0' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%238008a9' cx='50' cy='500' r='50'/%3E%3Cg fill='%238909b1' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%239109ba' cx='50' cy='600' r='50'/%3E%3Cg fill='%239a09c3' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a309cb' cx='50' cy='700' r='50'/%3E%3Cg fill='%23ad09d4' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b608dc' cx='50' cy='800' r='50'/%3E%3Cg fill='%23c007e5' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c905ee' cx='50' cy='900' r='50'/%3E%3Cg fill='%23d303f6' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23D0F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: contain;   
-    font-family: 'Poppins';
+background-color: #5D0FB4;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%235000a8' fill-opacity='0.6'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 
 nav.controls{
     position: fixed;
-    a:is(:link, :visited){
+    a:is(:link, :visited) {
         border-radius: 50px;
         display: flex;
         align-items: center;
@@ -37,21 +34,21 @@ main {
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     justify-content: center;
+    gap: 2rem;
     min-height: 100vh;
 
     header {
-        align-items: center;
         display: flex;
         flex-direction: column;
+        align-items: center;
         h1, h2 {
-            color: white;
+            color: #fff9;
             text-align: center;
             margin: 0;
         }
         h1 {
-            font-size: 4rem;
+            font-size: 3.4rem;
             font-weight: 400;
         }
         h2 {
@@ -59,10 +56,10 @@ main {
             font-weight: 300;
         }
         img {
-            background-color: #6528e0;
             border-radius: 50%;
+            background-color: #fff3;
             width: 160px;
-            border: 6px solid black;
+            border: 10px solid #fff9;
         }
     }
 
@@ -70,13 +67,13 @@ main {
         display: flex;
         flex-direction: column;
         padding: 0;
-        gap: 1rem;
-
+        gap: 0.4rem;
+        
         a:is(:link, :visited) {
             background-color: #0009;
-            border-radius: 28px;
+            border-radius: 50px;
             display: flex;
-            color: rgb(255, 255, 255);
+            color: #fffd;
             gap: 1rem;
             align-items: center;
             padding: 1rem;
@@ -85,35 +82,41 @@ main {
             width: 280px;
 
             i {
-                background-color: aliceblue;
-                border-radius: 28px;
+                background-color: #b8c2d0;
+                border-radius: 20px;
                 color: #0009;
                 font-style: normal;
                 display: flex;
-                height: 28px;
                 align-items: center;
                 justify-content: center;
-                transition: all 0.3s ease-in;
+                transition: all 0.5s ease-in;
                 height: 34px;
                 width: 34px;
             }
         }
 
-        a:is(:hover)  {
-            transform: translate(-18px);
-            background-color: rgba(226, 0, 207, 0.63);
+        a:is(:hover) {
+            transform: translate(-10px);
+            background-color: #000c;
         }
+
         a:is(:hover) i {
-            transform: scale(1.2) rotateY(360deg);
+            transform: scale(1.4);
+        }
+
+        h3 {
+            align-self: center;
+            font-size: 2.4rem;
+            color: #fff9;
         }
     }
+
     section {
         border-radius: 10px;
         background-color: #fff9;
         color: #0009;
         padding: 10px;
         width: 400px;
-
         h3 {
             border-bottom: 2px dotted #0004;
             color: #0006;
@@ -128,7 +131,7 @@ main {
         xmp {
             border-radius: 10px;
             background-color: #0009;
-            color: rgb(255, 255, 255);
+            color: #fff9;
             padding: 0 10px 10px 10px;
         }
     }
