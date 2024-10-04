@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comments</title>
+    <title>Link (CSS)</title>
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/custom.css">
+    <style>
+        .primer{
+            height: 300px;
+            width: 230px;
+            margin: 30px;
+            padding: 60px;
+            background-color: rgb(187, 187, 187);
+            border-radius: 10px;
+        }
+        .atributos{
+            display: flex;
+            
+        }
+        .modelo{
+            background-color: linar ;
+        }
+    </style>
 </head>
 <body>
     <nav class="boton">
@@ -15,19 +32,33 @@
     </nav>
     <main>
         <header>
-            <h1>Comments</h1>
+            <h1>Link (CSS)</h1>
             <h2>This tag allows you to insert code in css</h2>
         </header>
         <section>
-        <h3 class="today"></h3>
+        <div class="primer">
+            <h2>vehicule</h2>
+            <h1>Atributos</h1>
+            <div class="atributos">
+            <div class="modelo">
+                modelo
+                2010
+            </div>
+            <div class="color">
+                color
+                negro
+            </div>
+            <div class="marca">
+                marca
+                KIA
+            </div>
+            <div class="referencia">
+                referencia
+                sport
+            </div>
+        </div>
+        </div>
         </section>
     </main>
-    <script>
-        const today = document.querySelector('.today')
-        var ndate = new Date ()
-        today.textContent = 'TODAY: ' + ndate.getDate() 
-                                + '/' + (ndate.getMonth()+1) 
-                                + '/' + ndate.getFullYear()
-    </script>
 </body>
 </html>
