@@ -6,21 +6,314 @@
     <title>Link (CSS)</title>
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/custom.css">
+    <style>
+  
+        .vehicle-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s; 
+        }
+        .dark-mode .vehicle-section {
+            background-color: #1e1e1e; 
+            
+        }
+
+        .attributes, .metodos {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .attribute-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .car-container {
+            text-align: center;
+            position: relative;
+            margin: 20px 0;
+        }
+        .car-image {
+            max-width: 50%;
+            border-radius: 50px;
+            width: 50%;
+            display: block; 
+            margin: 0 auto; 
+            position: absolute; 
+            top: 20%;
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            margin-top: 50px;
+        }
+        .day-image {
+            max-width: 100%;
+            border-radius: 1px;
+            margin-bottom: 50px;
+        }
+        .arrow {
+            font-size: 50px;
+            cursor: pointer;
+            color: #000000;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .dark-mode .arrow {
+            color: #ffffff;
+        }
+        .left-arrow {
+            left: 10px;
+        }
+        .right-arrow {
+            right: 10px;
+        }
+
+        .vehicle-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+}
+        .vehicle-header h1 {
+            font-size: 24px;
+            color: #000000;
+        }
+        .dark-mode .header h1{
+            font-size: 24px;
+            color: #ffffff;
+        }
+        .mode-toggle {
+            padding: 10px 15px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: auto; 
+}
+       
+        .attributes h2 {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+        .attribute {
+            background: linear-gradient(0deg, #5bbaff 50%, #5bbaff 50%);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .attribute span {
+            display: block;
+            color: #ffffff;
+            font-size: 12px;
+            background-color: #000000;
+            padding: 5px 0;
+        }
+        .attribute p {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #000000;
+            background-color: #5bbaff;
+            padding: 5px 0;
+        }
+   
+        .metodos {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .boton {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .vehicle-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+}
+
+.vehicle-header h1 {
+    margin: 0; 
+    padding-left: 10px; 
+}
+
+.mode-toggle {
+    padding: 10px 15px;
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; 
+}
+
+.day-image {
+    max-width: 100%;
+    border-radius: 1px;
+    margin-bottom: 50px;
+    transition: background-image 0.3s;
+}
+
+
+.dark-mode .day-image {
+    content: url('../08-java/images/vehicle/noche.jpg'); 
+}
+
+.vehicle-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.dark-mode body {
+    background-color: #0029ce; 
+    color: #ffffff; 
+}
+
+
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode p, 
+.dark-mode span {
+    color: #ffffff; 
+}
+
+
+.dark-mode .mode-toggle {
+    background-color: #0029ce;
+    color: #ffffff; 
+}
+
+
+.dark-mode .attribute {
+    background: #0029ce;
+    color: #000000;
+}
+
+.dark-mode .attribute span {
+
+    background-color: #000000;
+}
+
+.dark-mode .attribute p {
+    background-color: #0029ce;
+    color: #ffffff;
+}
+
+    </style>
 </head>
 <body>
     <nav class="boton">
         <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+            </svg>
         </a>
     </nav>
     <main>
         <header>
             <h1>Link (CSS)</h1>
-            <h2>This tag allows you to insert code in css</h2>
+            <h2>This tag allows you to insert code in CSS</h2>
         </header>
         <section>
-        
+            <section class="vehicle-section">
+                <header class="vehicle-header">
+                    <h1>Title</h1>
+                    <button class="mode-toggle">Modo</button>
+                </header>
+                
+
+                <div class="attributes">
+                    <h2>Atributos</h2>
+                    <div class="attribute-grid">
+                        <div class="attribute modelo">
+                            <span>Modelo</span>
+                            <p>2010</p>
+                        </div>
+                        <div class="attribute color">
+                            <span>Color</span>
+                            <p>NEGRO</p>
+                        </div>
+                        <div class="attribute marca">
+                            <span>Marca</span>
+                            <p>KIA</p>
+                        </div>
+                        <div class="attribute referencia">
+                            <span>Referencia</span>
+                            <p>SPORT</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-container">
+                    <img src="../08-java/images/vehicle/dia.jpg" alt="Imagen del día" class="day-image">
+                    <img src="../08-java/images/vehicle/carro1.png" alt="Coche" class="car-image" id="carImage"> 
+                    <div class="arrow left-arrow">❮</div>
+                    <div class="arrow right-arrow">❯</div>
+                </div>
+
+                <h2>Métodos</h2>
+                <div class="metodos">
+                    <div class="boton"> ⬅️ </div>
+                    <div class="boton"> 🛑 </div>
+                    <div class="boton"> ➡️ </div>
+                </div>
+            </section>
         </section>
+
+        <script>
+           
+            const modeToggle = document.querySelector('.mode-toggle');
+            const body = document.body;
+
+            modeToggle.addEventListener('click', function () {
+                body.classList.toggle('dark-mode');
+            });
+
+            const images = [
+                '../08-java/images/vehicle/carro1.png',
+                '../08-java/images/vehicle/carro2.png',
+                '../08-java/images/vehicle/carro3.png',
+                '../08-java/images/vehicle/carro4.png',
+                
+            ];
+
+            let currentIndex = 0; 
+            const carImage = document.getElementById('carImage');
+
+            function updateImage() {
+                carImage.src = images[currentIndex]; 
+            }
+
+            document.querySelector('.left-arrow').addEventListener('click', function () {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1; 
+                updateImage();
+            });
+
+            document.querySelector('.right-arrow').addEventListener('click', function () {
+                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0; 
+                updateImage();
+            });
+        </script>
     </main>
 </body>
 </html>

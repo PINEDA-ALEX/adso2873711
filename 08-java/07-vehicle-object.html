@@ -3,63 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link (CSS)</title>
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <title>Vehículo</title>
     <style>
-        .primer{
-            height: 300px;
-            width: 230px;
-            margin: 30px;
-            padding: 60px;
-            background-color: rgb(187, 187, 187);
+        /* General */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Modo oscuro */
+        body.dark-mode {
+            background-color: #000000;
+            color: white;
+        }
+
+        /* Sección del vehículo */
+        .vehicle-section {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
             border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
-        .atributos{
+
+        body.dark-mode .vehicle-section {
+            background-color: #2c2c2c;
+            color: white;
+        }
+
+        /* Encabezado */
+        .vehicle-header {
             display: flex;
-            
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
-        .modelo{
-            background: linear-gradient(90deg, rgba(2,0,36,1) 50%, rgb(0, 0, 0) 0%, rgba(0,212,255,1) 100%);
-            
+
+        .vehicle-header h1 {
+            font-size: 24px;
+            color: #333333;
+        }
+
+        body.dark-mode .vehicle-header h1 {
+            color: rgb(0, 0, 220);
+        }
+
+        .mode-toggle {
+            padding: 10px 15px;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #0000ff;
+            color: #000000;
+        }
+
+        /* Atributos del vehículo */
+        .attributes h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        body.dark-mode .attributes h2 {
+            color: rgb(55, 0, 253);
+        }
+
+        .attribute-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .attribute {
+            background: linear-gradient(0deg, #5bbaff 50%, #000000 50%);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .attribute span {
+            display: block;
+            color: #ffffff;
+            font-size: 12px;
+            background-color: #000000;
+            padding: 5px 0;
+        }
+
+        .attribute p {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #000000;
+            background-color: #5bbaff;
+            padding: 5px 0;
+        }
+
+        body.dark-mode .attribute span,
+        body.dark-mode .attribute p {
+            background-color: #666;
+        }
+
+        /* Imagen del coche */
+        .car-container {
+            text-align: center;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .car-image {
+            max-width: 50%;
+            border-radius: 50px;
+            width: 50%;
+            display: block; /* Asegura que la imagen sea un bloque */
+            margin: 0 auto; /* Centra la imagen */
+            position: absolute; /* Coloca el carro dentro de la imagen del día */
+            top: 20%; /* Ajusta la posición vertical del carro */
+            left: 50%; /* Centra horizontalmente */
+            transform: translate(-50%, -50%); /* Centra completamente el carro */
+            margin-top: 50px;
+        }
+
+        .day-image {
+            max-width: 100%;
+            border-radius: 1px;
+            margin-bottom: 100px; /* Espacio entre la imagen del día y el carro */
+            z-index: 1; /* La imagen del día está debajo */
+        }
+
+        /* Método (Botones) */
+        .metodos {
+            margin-bottom: 10px;
+        }
+
+        .method-button {
+            padding: 10px 20px;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .method-button:hover {
+            background-color: #0088cc;
+        }
+
+        body.dark-mode .method-button {
+            background-color: #666;
+        }
+
+        .boton {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: lightgray;
+            display: inline-flex; /* Cambiar a inline-flex para centrar el contenido */
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin: 70px; /* Añadir margen para separación */
+        }
+
+        /* Flechas de navegación */
+        .arrow {
+            position: absolute;
+            top: 30%; /* Ajusta la posición vertical de las flechas */
+            transform: translateY(-50%);
+            font-size: 50px;
+            cursor: pointer;
+            color: #000000;
+            z-index: 10;
+        }
+
+        .left-arrow {
+            left: 10px; /* Distancia desde la izquierda */
+        }
+
+        .right-arrow {
+            right: 10px; /* Distancia desde la derecha */
         }
     </style>
 </head>
 <body>
-    <nav class="boton">
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
-        </a>
-    </nav>
-    <main>
-        <header>
-            <h1>Link (CSS)</h1>
-            <h2>This tag allows you to insert code in css</h2>
+    <section class="vehicle-section">
+        <header class="vehicle-header">
+            <h1>Title</h1>
+            <button class="mode-toggle">Mode</button>
         </header>
-        <section>
-        <div class="primer">
-            <h2>vehicule</h2>
-            <h1>Atributos</h1>
-            <div class="atributos">
-            <div class="modelo">
-                modelo
-                2010
-            </div>
-            <div class="color">
-                color
-                negro
-            </div>
-            <div class="marca">
-                marca
-                KIA
-            </div>
-            <div class="referencia">
-                referencia
-                sport
+
+        <div class="attributes">
+            <h2>Atributos</h2>
+            <div class="attribute-grid">
+                <div class="attribute modelo">
+                    <span>Modelo</span>
+                    <p>2010</p>
+                </div>
+                <div class="attribute color">
+                    <span>Color</span>
+                    <p>NEGRO</p>
+                </div>
+                <div class="attribute marca">
+                    <span>Marca</span>
+                    <p>KIA</p>
+                </div>
+                <div class="attribute referencia">
+                    <span>Referencia</span>
+                    <p>SPORT</p>
+                </div>
             </div>
         </div>
+
+        <div class="car-container">
+            <img src="../08-java/images/vehicle/dia.jpg" alt="Imagen del día" class="day-image"> <!-- Imagen estática -->
+            <img src="../08-java/images/vehicle/carro1.png" alt="Coche" class="car-image" id="carImage"> <!-- Imagen del carro -->
+            <div class="arrow left-arrow">❮</div>
+            <div class="arrow right-arrow">❯</div>
         </div>
-        </section>
-    </main>
+        
+        <h2>Métodos</h2>
+        <div class="metodos">
+            <div class="botones">
+                <div class="boton">-</div>
+                <div class="boton">P</div>
+                <div class="boton">+</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Modo oscuro
+        const modeToggle = document.querySelector('.mode-toggle');
+        const body = document.body;
+
+        modeToggle.addEventListener('click', function () {
+            body.classList.toggle('dark-mode');
+        });
+
+        const images = [
+            '../08-java/images/vehicle/carro1.png',
+            '../08-java/images/vehicle/carro2.png',
+            '../08-java/images/vehicle/carro3.png',
+            '../08-java/images/vehicle/carro4.png',
+            // Agrega más rutas de imágenes según sea necesario
+        ];
+
+        let currentIndex = 0; // Índice de la imagen actual
+        const carImage = document.getElementById('carImage'); // Ahora funciona
+
+        function updateImage() {
+            carImage.src = images[currentIndex]; // Actualiza la fuente de la imagen
+        }
+
+        document.querySelector('.left-arrow').addEventListener('click', function () {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1; // Decrementa el índice o vuelve al último
+            updateImage();
+        });
+
+        document.querySelector('.right-arrow').addEventListener('click', function () {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0; // Incrementa el índice o vuelve al primero
+            updateImage();
+        });
+    </script>
 </body>
 </html>
