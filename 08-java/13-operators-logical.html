@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator with Dark Mode</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Agregar Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .calculator {
+            background-color: #5BB9A7; /* Color aguamarina para el modo claro */
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 300px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+
+        .modo {
+            background-color: #D4F0EB;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .display {
+            background-color: #5BB9A7; /* Color aguamarina para el modo claro */
+            padding: 5px;
+            border-radius: 10px;
+            text-align: right;
+            font-weight: bold;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .operation {
+            width: 80%;
+            font-size: 18px;
+            border: none;
+            text-align: right;
+            background: none;
+            color: #000000;
+        }
+
+        .result {
+            font-size: 28px;
+            margin: 2px 0 0 0;
+            color: #000000;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+            padding: 4px;
+            background-color: #245D52;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #AEEADF; /* Color aguamarina */
+            color: #000000;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #86d1bf;
+        }
+
+        button:active {
+            background-color: #6ab8a3;
+        }
+
+        /* Modo oscuro */
+        .dark-mode .calculator {
+            background-color: #000223; /* Fondo de la calculadora en modo oscuro */
+            color: #fff;
+        }
+
+        .dark-mode .display {
+            background-color: #000223; /* Fondo del display en modo oscuro */
+            color: #fff;
+        }
+
+        .dark-mode .operation {
+            color: #fff;
+        }
+
+        .dark-mode .result {
+            color: #fff;
+        }
+
+        .dark-mode .buttons {
+            background-color: #424687; /* Fondo de los botones en modo oscuro */
+        }
+
+        .dark-mode button {
+            background-color: #1E204B; /* Fondo de los botones en modo oscuro */
+            color: #fff;
+        }
+
+        .dark-mode button:hover {
+            background-color: #303553; /* Color más claro al pasar el mouse por encima */
+        }
+
+        .dark-mode button:active {
+            background-color: #2a2f45; /* Color más oscuro al hacer clic */
+        }
+
+        /* Cambiar solo el color de fondo del botón "=" en modo oscuro */
+        .dark-mode .btn-aqual {
+            background-color: #000223; /* Fondo del botón "=" */
+        }
+
+        /* Cambiar solo el color de fondo del botón "=" en modo claro */
+        .btn-aqual {
+            background-color: #AEEADF; /* Fondo del botón "=" en modo claro */
+        }
+
+        /* Modo claro por defecto (sin fondo negro) */
+
+        .modo {
+            background-color: #D4F0EB;
+        }
+
+        /* Estilo de los íconos */
+        .dark-mode .modo i {
+            color: #000000; /* Color blanco para el ícono en modo oscuro */
+        }
+
+        .modo i {
+            color: #000; /* Color negro para el ícono en modo claro */
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="boton">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>13-challenge</h1>
+            <h2>Calculator</h2>
+        </header>
+        <section>
+            <div class="calculator" id="calculator">
+                <div class="modo" onclick="toggleDarkMode()">
+                    <!-- Ícono de modo claro/noche (eliminar texto) -->
+                    <i class="fas fa-moon" id="mode-icon"></i>
+                </div>
+                <header class="display">
+                    <input type="text" class="operation" value="30x4/2">
+                    <h5 class="result">12.936</h5>
+                </header>
+                <footer class="buttons">
+                    <button class="btn-clear">C</button>
+                    <button class="btn-back"><</button>
+                    <button class="btn-pow" data-opr="**">^</button>
+                    <button class="btn-mod" data-opr="%">%</button>
+
+                    <button class="btn-1" data-num="1">1</button>
+                    <button class="btn-2" data-num="2">2</button>
+                    <button class="btn-3" data-num="3">3</button>
+                    <button class="btn-prod" data-opr="*">*</button>
+
+                    <button class="btn-4" data-num="4">4</button>
+                    <button class="btn-5" data-num="5">5</button>
+                    <button class="btn-6" data-num="6">6</button>
+                    <button class="btn-subs" data-opr="-">-</button>
+
+                    <button class="btn-7" data-num="7">7</button>
+                    <button class="btn-8" data-num="8">8</button>
+                    <button class="btn-9" data-num="9">9</button>
+                    <button class="btn-add" data-opr="+">+</button>
+
+                    <button class="btn-div" data-opr="/">/</button>
+                    <button class="btn-0" data-num="0">0</button>
+                    <button class="btn-dot" data-opr=".">.</button>
+                    <button class="btn-aqual" data-opr="=">=</button>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const modeIcon = document.getElementById('mode-icon');
+            if (document.body.classList.contains('dark-mode')) {
+                modeIcon.classList.remove('fa-moon');
+                modeIcon.classList.add('fa-sun'); // Cambia el ícono al de sol (día)
+            } else {
+                modeIcon.classList.remove('fa-sun');
+                modeIcon.classList.add('fa-moon'); // Cambia el ícono al de luna (noche)
+            }
+        }
+    </script>
+</body>
+</html>

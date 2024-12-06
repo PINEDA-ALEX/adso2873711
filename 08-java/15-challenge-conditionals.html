@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link (CSS)</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+       section div.query {
+             margin: 0 auto;
+             width: 260px;
+             display: flex;
+             align-items: center;
+             flex-direction: column;
+             gap: 0.4rem;
+             input {
+                background-color: #f0db4f;
+                border: 2px solid #fff;
+                outline: none;
+                padding: 0.4rem;
+                border-radius: 8px;
+                transition: background-color 0.4s ease-in;
+                font-family: 'Poppins';
+                width: 200px;
+                &:focus {
+                    background-color: #fff6;
+                }
+             }
+             h5 {
+                margin: 0;
+                font-size: 1rem;
+             }
+             button {
+                border: none;
+                border-radius: 8px;
+                color: #fff;
+                cursor: pointer;
+                background-color: #0009;
+                font-family: 'Poppins';
+                padding: 0.5rem;
+                transition: background-color 0.4s ease-in;
+                width: 216px;
+                &:hover {
+                    background-color: #000c;
+                }
+             }
+        }
+
+ 
+    </style>
+</head>
+<body>
+    <nav class="boton">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>Link (CSS)</h1>
+            <h2>This tag allows you to insert code in CSS</h2>
+        </header>
+        <section>
+            <div class="query">
+                <h5>Type City:</h5>
+                <input type="text">
+                <button>Show</button>
+            </div>
+
+            <h4 ></h4>
+        </section>
+
+        <script>
+        </script>
+    </main>
+</body>
+</html>
