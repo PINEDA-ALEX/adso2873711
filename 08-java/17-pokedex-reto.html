@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Viewer</title>
+    <style>
+        /* Estilos */
+        body {
+          background: url('../08-java/images/pokemon/fondo2-removebg-preview.png') no-repeat center center fixed;
+          background-size: 30%;
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background-color: #1a1a3f;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          overflow-y: auto;
+        }
+    
+        .pokemon-container {
+            
+  position: relative;
+  width: 300px;
+  height: 550px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(109, 109, 109, 0.226);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+        .view-button {
+          background-color: black;
+          color: white;
+          padding: 10px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+    
+        .view-button:hover {
+          background-color: #444;
+        }
+    
+        .pokemon-list {
+          display: none;
+          margin-top: 20px;
+          width: 90%;
+          max-width: 400px;
+          position: relative;
+        }
+    
+        .back-arrow {
+          position: absolute;
+          top: -10px;
+          left: -300px;
+          font-size: 24px;
+          background-color: black;
+          color: white;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+    
+        .pokemon-item {
+          background: rgba(0, 0, 0, 0.7);
+          border-radius: 50%;
+          margin: 20px auto;
+          width: 200px;
+          height: 200px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+        }
+    
+        .pokemon-item img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+        }
+    
+        .pokemon-item span {
+          font-size: 16px;
+          font-weight: bold;
+        }
+    
+        .stats {
+          margin-top: 10px;
+          width: 90%;
+        }
+    
+        .stat {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 5px;
+        }
+    
+        .stat-name {
+          font-size: 14px;
+          font-weight: bold;
+        }
+    
+        .progress-bar {
+          width: 70%;
+          height: 10px;
+          appearance: none;
+          background-color: #444;
+          border-radius: 5px;
+          overflow: hidden;
+          margin-right: 10px;
+        }
+    
+        .progress-bar::-webkit-progress-value {
+          background-color: #5BB9A7;
+          border-radius: 5px;
+        }
+    
+        .progress-bar::-moz-progress-bar {
+          background-color: #5BB9A7;
+          border-radius: 5px;
+        }
+    
+        .percentage {
+          font-size: 14px;
+          color: #5BB9A7;
+          font-weight: bold;
+        }
+    
+        .pokemon-details {
+          display: none;
+          width: 70%;
+          height: 550px;
+          max-width: 300px;
+          padding: 40px;
+          background-color: rgba(0, 0, 0, 0.8);
+          border-radius: 10px;
+          position: relative;
+          top: 10px;
+        }
+    
+        .details-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+    
+        .details-header img {
+          width: 100px;
+          height: 100px;
+        }
+    
+        .details-header span {
+          font-size: 20px;
+          font-weight: bold;
+        }
+    
+        .season-buttons {
+          display: flex;
+          justify-content: space-around;
+          margin-bottom: 20px;
+        }
+      </style>
+</head>
+<body>
+    <div class="pokemon-container">
+        <button class="view-button" onclick="showPokemonList()">Ver Pokémon</button>
+    </div>
+
+    <div class="pokemon-list">
+        <div class="back-arrow" onclick="goBack()">←</div>
+        <div class="season-buttons">
+            <button class="view-button" onclick="loadPokemons(season1)">Temporada 1</button>
+            <button class="view-button" onclick="loadPokemons(season2)">Temporada 2</button>
+        </div>
+        <!-- Pokémon items will be appended here -->
+    </div>
+
+    <div class="pokemon-details">
+        <div class="back-arrow" onclick="goToList()">←</div>
+        <div class="details-header">
+            <img id="pokemon-image" alt="">
+            <span id="pokemon-name"></span>
+            <span id="pokemon-type"></span>
+        </div>
+        <div class="stats" id="pokemon-stats">
+            <!-- Stats will be appended here -->
+        </div>
+    </div>
+    <script>
+        const season1 = [1, 151];
+        const season2 = [152, 251];
+        const pokemonList = document.querySelector('.pokemon-list');
+        const pokemonDetails = document.querySelector('.pokemon-details');
+        const pokemonImage = document.getElementById('pokemon-image');
+        const pokemonName = document.getElementById('pokemon-name');
+        const pokemonType = document.getElementById('pokemon-type');
+        const pokemonStats = document.getElementById('pokemon-stats');
+
+        async function loadPokemons(season) {
+            pokemonList.innerHTML = '<div class="back-arrow" onclick="goBack()">←</div><div class="season-buttons"><button class="view-button" onclick="loadPokemons(season1)">Temporada 1</button><button class="view-button" onclick="loadPokemons(season2)">Temporada 2</button></div>'; 
+            const [start, end] = season;
+
+            for (let pk = start; pk <= end; pk++) { 
+                const url = `https://pokeapi.co/api/v2/pokemon/${pk}`;
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+
+                    const pokemonItem = document.createElement('div');
+                    pokemonItem.classList.add('pokemon-item');
+                    pokemonItem.onclick = () => showPokemonDetails(data);
+
+                    const img = document.createElement('img');
+                    img.src = data.sprites.other["official-artwork"].front_default;
+                    img.alt = data.name;
+
+                    const name = document.createElement('span');
+                    name.textContent = `${data.name} #${data.id}`;
+                    const type = document.createElement('span');
+                    type.textContent = `${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
+
+                    pokemonItem.appendChild(img);
+                    pokemonItem.appendChild(name);
+                    pokemonItem.appendChild(type);
+                    pokemonList.appendChild(pokemonItem);
+                } catch (error) {
+                    console.error('Error fetching Pokémon:', error);
+                }
+            }
+        }
+
+        function showPokemonDetails(data) {
+            pokemonList.style.display = 'none';
+            pokemonDetails.style.display = 'block';
+
+            pokemonImage.src = data.sprites.other["official-artwork"].front_default;
+            pokemonName.textContent = `${data.name} #${data.id}`;
+            pokemonType.textContent = `${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
+
+            pokemonStats.innerHTML = '';
+            data.stats.forEach(stat => {
+                const statElement = document.createElement('div');
+                statElement.classList.add('stat');
+
+                const statName = document.createElement('span');
+                statName.classList.add('stat-name');
+                statName.textContent = stat.stat.name.toUpperCase();
+
+                const progressBar = document.createElement('progress');
+                progressBar.classList.add('progress-bar');
+                progressBar.value = stat.base_stat;
+                progressBar.max = 100;
+
+                const percentage = document.createElement('span');
+                percentage.classList.add('percentage');
+                percentage.textContent = `${stat.base_stat}%`;
+
+                statElement.appendChild(statName);
+                statElement.appendChild(progressBar);
+                statElement.appendChild(percentage);
+                pokemonStats.appendChild(statElement);
+            });
+        }
+
+        function showPokemonList() {
+    document.querySelector('.pokemon-container').style.display = 'none';
+    pokemonList.style.display = 'block';
+    loadPokemons(season1);
+}
+
+        function goBack() {
+            pokemonList.style.display = 'none';
+            document.querySelector('.pokemon-container').style.display = 'flex';
+        }
+
+        function goToList() {
+            pokemonDetails.style.display = 'none';
+            pokemonList.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
