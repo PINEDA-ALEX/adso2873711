@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Bool</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+        .vehicle-section {
+    background-image: url('../08-java/images/baloto/baloto.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative;
+}
+
+.bola {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #414141e9, #010e12d6);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 
+                inset 2px 2px 5px rgba(255, 255, 255, 0.2);
+    opacity: 0; 
+    transform: scale(0);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; 
+}
+
+        .super-bola {
+            background: linear-gradient(145deg, #f31212, #a8290f);
+        }
+        .boton-generar {
+            padding: 12px 20px;
+            background-color: #2000d4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .boton-generar:hover {
+            background-color: #030ff4;
+        }
+        .triangulo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nivel {
+            display: flex;
+            justify-content: center;
+        }
+        .nivel:not(:last-child) {
+            margin-bottom: 15px;
+        }
+        image{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+
+        }
+    </style>
+</head>
+<body>
+    <nav class="boton">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>Super Bool</h1>
+        </header>
+        <section>
+            <div class="vehicle-section">
+                <div class="triangulo">
+                    <div class="nivel">
+                        <div class="bola" id="bola1"></div>
+                        <div class="bola" id="bola2"></div>
+                        <div class="bola" id="bola3"></div>
+                    </div>
+                    <div class="nivel">
+                        <div class="bola" id="bola4"></div>
+                        <div class="bola" id="bola5"></div>
+                    </div>
+                    <div class="nivel">
+                        <div class="bola super-bola" id="super-bola"></div>
+                    </div>
+                </div>
+                <button class="boton-generar" id="generar-bolas">Jugar</button>
+            </div>
+        </section>
+        
+        <script>
+          document.getElementById('generar-bolas').addEventListener('click', function() {
+    const numeros = new Set();
+    while (numeros.size < 5) {
+        numeros.add(Math.floor(Math.random() * 49) + 1);
+    }
+    
+    const superBola = Math.floor(Math.random() * 6) + 1; 
+    const numerosArray = Array.from(numeros);
+    const bolas = [
+        document.getElementById('bola1'),
+        document.getElementById('bola2'),
+        document.getElementById('bola3'),
+        document.getElementById('bola4'),
+        document.getElementById('bola5')
+    ];
+    
+    bolas.forEach(bola => {
+        bola.style.opacity = 0;
+        bola.style.transform = 'scale(0)';
+        bola.textContent = '';
+    });
+
+    const superBolaElement = document.getElementById('super-bola');
+    superBolaElement.style.opacity = 0;
+    superBolaElement.style.transform = 'scale(0)';
+    superBolaElement.textContent = '';
+
+    numerosArray.forEach((num, index) => {
+        const bola = bolas[index];
+        setTimeout(() => {
+            bola.textContent = num;
+            bola.style.opacity = 1;
+            bola.style.transform = 'scale(1)';
+        }, index * 500); 
+    });
+    setTimeout(() => {
+        superBolaElement.textContent = superBola;
+        superBolaElement.style.opacity = 1;
+        superBolaElement.style.transform = 'scale(1)';
+    }, 5 * 500); 
+});
+
+
+        </script>
+    </main>
+</body>
+</html>
