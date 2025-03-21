@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/custom.css">
     <style>
+        section{
+            padding: 0;
+        }
         .vehicle-section {
             display: flex;
             flex-direction: column;
@@ -235,137 +238,12 @@
         </header>
         <section>
             <section class="vehicle-section">
-                </div>
-                <div class="car-container">
-                </div>
-
-                <h2>Métodos</h2>
-                <div class="metodos">
-                </div>
             </section>
         </section>
 
         <script>
+
         </script>
     </main>
 </body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link (CSS)</title>
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <style>
-        .inicio {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #878787;
-        }
-
-        .logo img {
-            width: 300px;
-            height: 200px;
-            margin-bottom: 200px;
-        }
-
-        .botonIni {
-            background-color: #00000070;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .botonIni:hover {
-            background-color: #000000;
-            color: #878787;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .botonIni h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-
-        .segundoo {
-            display: none;
-            /* Oculta el div */
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .mostrar {
-            display: block;
-            /* Muestra el div */
-        }
-
-        .encabesado img {
-            height: auto;
-            width: 80px;
-            height: 60px;
-
-        }
-    </style>
-</head>
-
-<body>
-    <nav class="boton">
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <path fill="#ffffff"
-                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
-            </svg>
-        </a>
-    </nav>
-    <main>
-        <header>
-            <h1>Link (CSS)</h1>
-            <h2>This tag allows you to insert code in CSS</h2>
-        </header>
-        <section>
-            <div class="inicio">
-                <div class="logo">
-                    <img src="../08-java/images/cars/image 9.png">
-                </div>
-                <button class="botonIni" id="abrir">
-                    <h1>iniciar</h1>
-                </button>
-            </div>
-
-            <div id="segundo" class="segundoo">
-                <div class="encabesado">
-                    <img src="../08-java/images/cars/image 9.png">
-                </div>
-            </div>
-        </section>
-
-        <script>
-            const boton = document.getElementById('abrir');
-            const nuevodiv = document.getElementById('segundo');
-
-            boton.addEventListener('click', () => {
-                segundo.classList.toggle('mostrar');
-            })
-        </script>
-    </main>
-</body>
-
 </html>

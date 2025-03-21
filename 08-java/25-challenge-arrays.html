@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reto</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+        .inicio,
+        .segundoo {
+            width: 100%;
+            max-width: 500px;
+            max-height: 800px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #878787;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .segundoo {
+            display: none;
+            padding: auto;
+            height: auto;
+        }
+
+        .inicio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #878787;
+        }
+
+        .logo img {
+            width: 300px;
+            height: 200px;
+            margin-bottom: 200px;
+        }
+
+        .botonIni {
+            background-color: #00000070;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .botonIni:hover {
+            background-color: #000000;
+            color: #878787;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .botonIni h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .segundoo {
+            text-align: center;
+            background: #878787;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .mostrar {
+            display: block;
+        }
+
+        .seleccion {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .imagen-contenedor {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .imagen-contenedor img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: none;
+        }
+
+        .opciones button {
+            margin: 5px;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .resultado {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            min-height: 80px;
+            max-width: 360px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        .resultado .imagen-contenedor {
+            position: relative;
+        }
+
+        .numero-posicion {
+            position: absolute;
+            top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .botones {
+            margin-top: 20px;
+        }
+
+        .btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+        }
+
+        .azul {
+            background: #1E3A8A;
+        }
+
+        .rojo {
+            background: #9B1C31;
+        }
+
+        .encabesado img {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>reto array</h1>
+        </header>
+        <section>
+            <div class="inicio" id="inicio">
+                <div class="logo">
+                    <img src="../08-java/images/cars/image9.png">
+                </div>
+                <button class="botonIni" id="abrir">
+                    <h1>iniciar</h1>
+                </button>
+            </div>
+
+            <div id="segundo" class="segundoo">
+                <div class="encabesado">
+                    <img src="../08-java/images/cars/image9.png">
+                </div>
+
+                <h2>1. seleccionar</h2>
+                <div class="seleccion">
+                    <script>
+                        for (let i = 1; i <= 8; i++) {
+                            document.write(`
+                                <div class="imagen-contenedor" onclick="seleccionarImagen('images/cars/image${i}.png')">
+                                    <img src="images/cars/image${i}.png">
+                                </div>
+                            `);
+                        }
+                    </script>
+                </div>
+
+                <h2>2. opciones</h2>
+                <div class="opciones">
+                    <button id="lastFirst" onclick="cambiarOpcion('lastFirst')">last</button>
+                    <button id="addRemove" onclick="cambiarOpcion('addRemove')">add</button>
+                    <input type="number" id="numeroBorrar" min="1" max="5" placeholder="N°"
+                        style="width: 50px; margin-left: 10px;">
+                </div>
+
+
+
+                <div class="botones">
+                    <button class="btn azul" onclick="aplicarAccion('+')">+</button>
+                    <button class="btn rojo" onclick="aplicarAccion('-')">-</button>
+                </div>
+
+                <h2>3. resultado</h2>
+                <div id="resultado" class="resultado"></div>
+            </div>
+        </section>
+
+        <script>
+            const boton = document.getElementById('abrir');
+            const inicioDiv = document.getElementById('inicio');
+            const segundoDiv = document.getElementById('segundo');
+
+            boton.addEventListener('click', () => {
+                inicioDiv.style.display = 'none';
+                segundoDiv.style.display = 'flex'; 
+            });
+            let imagenSeleccionada = null;
+            let lastFirst = 'last';
+            let addRemove = 'add';
+
+            function seleccionarImagen(src) {
+                imagenSeleccionada = src;
+            }
+
+            function cambiarOpcion(opcion) {
+                if (opcion === 'lastFirst') {
+                    lastFirst = lastFirst === 'last' ? 'first' : 'last';
+                    document.getElementById('lastFirst').textContent = lastFirst;
+                } else if (opcion === 'addRemove') {
+                    addRemove = addRemove === 'add' ? 'remove' : 'add';
+                    document.getElementById('addRemove').textContent = addRemove;
+                }
+            }
+
+
+            function aplicarAccion(accion) {
+                const resultadoDiv = document.getElementById('resultado');
+                const imgCount = resultadoDiv.getElementsByTagName('img').length;
+                const numeroBorrar = parseInt(document.getElementById('numeroBorrar').value);
+
+                if (addRemove === 'add' && accion === '+' && imagenSeleccionada) {
+                    if (imgCount < 5) {
+                        const divElement = document.createElement('div');
+                        divElement.className = 'imagen-contenedor';
+
+                        const imgElement = document.createElement('img');
+                        imgElement.src = imagenSeleccionada;
+                        imgElement.className = 'resultado-img';
+
+                        const numeroElement = document.createElement('div');
+                        numeroElement.className = 'numero-posicion';
+
+                        divElement.appendChild(imgElement);
+                        divElement.appendChild(numeroElement);
+
+                        if (lastFirst === 'last') {
+                            resultadoDiv.appendChild(divElement);
+                        } else {
+                            resultadoDiv.prepend(divElement);
+                        }
+
+                        actualizarNumeros();
+                    } else {
+                        alert('Máximo 5 imágenes.');
+                    }
+                } else if (addRemove === 'remove' && accion === '-') {
+                    if (imgCount > 0) {
+                        if (!isNaN(numeroBorrar) && numeroBorrar >= 1 && numeroBorrar <= imgCount) {
+                            resultadoDiv.removeChild(resultadoDiv.children[numeroBorrar - 1]);
+                        } else {
+                            if (lastFirst === 'last') {
+                                resultadoDiv.removeChild(resultadoDiv.lastElementChild);
+                            } else {
+                                resultadoDiv.removeChild(resultadoDiv.firstElementChild);
+                            }
+                        }
+                        actualizarNumeros();
+                    }
+                }
+            }
+
+            function actualizarNumeros() {
+                const contenedores = document.querySelectorAll('#resultado .imagen-contenedor');
+                contenedores.forEach((contenedor, index) => {
+                    contenedor.querySelector('.numero-posicion').textContent = index + 0;
+                });
+            }
+
+
+
+        </script>
+    </main>
+</body>
+
+</html>
